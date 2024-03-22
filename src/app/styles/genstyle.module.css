@@ -1,0 +1,77 @@
+.body {
+   background-color: #fbfcfd;
+}
+
+.rdcard {
+   background-color: white;
+   padding: 11px;
+   margin: 15px;
+   border-radius: 15px;
+   box-shadow: 0px 0px 133px 0px rgb(242, 247, 248);
+
+}
+
+.ctadiv {
+   border-top: 1px solid rgb(239, 251, 252);
+}
+
+.cardrow {
+   display: flex;
+   height: 55px;
+   flex-direction: row;
+   width: 90%;
+   background-color: #fff;
+   box-shadow: 1px 1px 15px 0px #d9dcdfb9;
+   opacity: .9;
+   padding-left: 11px;
+   padding-top: 11px;
+   padding-bottom: 11px;
+   margin: 11px 9px 11px 11px !important;
+   border-radius: 13px;
+
+}
+
+.snumrow {
+   max-height: 100%;
+   flex-wrap: wrap;
+   flex: 0 0 45px;
+   background-color: #04c44e;
+   color: white;
+   border-radius: 50%;
+   margin: auto 11px auto 11px;
+   width: 45px;
+   height: 45px;
+   position: relative;
+   box-shadow: 0px 5px 5px #E3E3E4;
+}
+
+.snumrow p {
+   font-size: 23px;
+   font-weight: 600;
+   margin-top: 11px;
+   text-align: center;
+
+
+}
+
+.titlerow {
+   max-height: 100%;
+   flex-shrink: 1;
+   flex-wrap: wrap;
+   flex: 85%;
+   color: #04c44e;
+   margin-left: 15px;
+   position: relative;
+   margin-top: -11px;
+}
+
+.titlerow p {
+   margin-top: -13px;
+   font-size: 12.5px;
+   color: #151616;
+}
+
+.cardrow:hover {
+   transition: background-color #ff1493 ease-out;
+}
+
