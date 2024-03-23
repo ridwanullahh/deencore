@@ -1,95 +1,53 @@
-// 'use client'
+'use client'
 
-// import { useState } from 'react';
-// import style from './global.module.css';
-// import Btmenu from './components/bottommenu'
-// import husnData from './husn.json';
-// import Link from 'next/link';
+import Link from 'next/link';
+import styles from 'global.module.css';
+import QuranData from  "./assets/jsons/quran.json";
+import AdhkarData from './assets/jsons/husn.json';
+import { useState } from 'react';
 
 
-// export default function Home() {
-//   return (
-//     <div>
-//       <Menu/>
-//       <Dhikrcat/>
-//       <Btmenu/>
-//     </div>
-//   )
 
-// } 
 
-// export function Menu() {
+export default function Feed() {
+    return (
+        <div>
+            <RandQverse/>
+            {/* <RandHadith/> */}
+            {/* <RandAdhkar/> */}
+        </div>
+    )
+}
 
-//   return ( 
-//     <div>
-//     <Search/>
-//     </div>
-//   )
-// } 
-
-// export function Search() { 
-//   const [searchvalue, setsearchvalue] = useState("");
-//   const [searchresults, setsearchresults] = useState([]);
-  
-//   const handleSearchChange = (event) => {
-//    const inputvalue = event.target.value;
-//    setsearchvalue(inputvalue);
-//     const founddata = husnData["English"].filter((data) => {
-
-//       const title = data.TITLE.toLowerCase();
-//       const arabictext = data.TEXT[0]?.ARABIC_TEXT?.toLowerCase() || "";
-//       const translatetext = data.TEXT[0]?.TRANSLATED_TEXT?.toLowerCase() || "";
+export function RandQverse() { 
+    // states tracker the generator
+    const [randverse, setrandverse] = useState();
+    const [randsurah, setrandsurah] = useState();
     
-//     return (
-//       title.includes(inputvalue.toLowerCase()) || 
-//       arabictext.includes(inputvalue.toLowerCase()) || 
-//       translatetext.includes(inputvalue.toLowerCase())
-//     );
-//     }); 
-//     setsearchresults(founddata)
-//   } 
-//   return (
-//     <div>
-//       <input type="search" placeholder='Search Adhkar' value={searchvalue} 
-//       onChange={handleSearchChange}/> 
-
-//       {searchresults.map((search) => (
-//         <div key={search.ID}>
-//           <Link 
-//           href= {{
-//             pathname: "./read",
-//             query: {id : search.ID} 
-//           }}
-//             >
-//           {search.TITLE}
-//             </Link>
-//             </div>
-//       )  )}
-//     </div>
-//   )
-// }
+    const randomversegenerator = () => {
+    const getrand =  Math.floor(Math.random() * QuranData.length);
+    const randsurah = QuranData[getrand];
+    const randverses = Math.floor(Math.random() * randsurah.verses.length);
+    const randverse =  randsurah.verses[randverses] ;
+    
+    
+   
+    setrandverse(randverse);
+    setrandsurah(randsurah)
+};
 
 
-
-
-
-// export function Dhikrcat() { 
-// const datas = husnData["English"];
-
-//   return (
-//     <div> 
-//  {datas.map(data => (
-//   <div key={data.ID}>
-//   <Link
-//   href={{
-//     pathname: './read',
-//     query: {id: data.ID}
-//   }} replace>{data.TITLE}
-//   </Link>
-//   </div>
-
-//  ))}
-      
-//     </div>
-//   )
-// };
+    return (
+        <div>
+            <button onClick={randomversegenerator}>Reload</button>
+    { randverse && randsurah ? ( 
+    <div>
+    <h3>{randverse.id}</h3>
+    <h3>{randverse.text}</h3>
+    <h3>{randverse.translation}</h3>
+    <h3>{randsurah.id}</h3> 
+    <h3>{randsurah.name}</h3> 
+    </div>) : (<h3>Unable to load</h3>)}
+        </div>
+    )
+}

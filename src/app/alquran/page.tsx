@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div>
       <Menu/>
-      <Dhikrcat/>
+      <SurahList/>
       <Btmenu/>
     </div>
   )
@@ -54,7 +54,7 @@ export function Search() {
       onChange={handleSearchChange}/> 
 
       {searchresults.map((search) => (
-        <div key={search.ID}>
+        <div key={search.id}>
           <Link 
           href= {{
             pathname: "./read",
@@ -73,7 +73,7 @@ export function Search() {
 
 
 
-export function Dhikrcat() { 
+export function SurahList() { 
 const datas = QuranData;
 
   return (
@@ -82,7 +82,7 @@ const datas = QuranData;
   <div key={data.id}>
   <Link
   href={{
-    pathname: './read',
+    pathname: './alquran/read',
     query: {id: data.id}
   }} replace><h3>{data.translation}</h3>
   <h3>{data.name}</h3>
