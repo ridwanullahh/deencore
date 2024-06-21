@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import styles from '../styles/genstyle.module.css';
 import Btmenu from '../components/bottommenu'
-import QuranData from '../assets/jsons/quran.json';
+import QuranData from '../../public/jsons/quran.json';
 import Link from 'next/link';
 
 

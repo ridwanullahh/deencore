@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import style from './global.module.css';
 import Btmenu from '../components/bottommenu'
-import husnData from '../assets/jsons/husn.json';
+import husnData from '../../public/jsons/husn.json';
 import Link from 'next/link';
 
 

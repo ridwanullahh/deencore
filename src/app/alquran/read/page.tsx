@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
-import QuranData from '../../assets/jsons/quran.json';
+import QuranData from '../../public/jsons/quran.json';
 
 interface QuranItem {
   id: number;

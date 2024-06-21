@@ -1,7 +1,7 @@
 'use client'
 
 import { useSearchParams } from "next/navigation";
-import husn from '../assets/jsons/husn.json';
+import husn from '../../public/jsons/husn.json';
 
 const husndata = husn["English"];
 
